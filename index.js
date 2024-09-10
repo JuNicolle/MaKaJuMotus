@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded',()=>{
+    
     // on cree la liste de mots
     const listeMots=["toto","totomoto","maison"];
     // console.log(listeMots.length);
@@ -18,3 +19,4 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 
 })
+

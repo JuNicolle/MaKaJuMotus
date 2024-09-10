@@ -1,3 +1,39 @@
-*{
-    background-color: beige;
+
+
+td {
+    border: 1px solid black;
+    padding: 3vw;
 }
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+
+}
+
+#keybord {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+#keybord>#firstLign, #secondLign, #thirdLign {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.letter > button{
+width: 5vw;
+    padding: 2.5vw;
+
+
+}
+
+#deleteButton{
+text-align: center;
+
+}
+
