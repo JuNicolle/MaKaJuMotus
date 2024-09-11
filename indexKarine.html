@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./indexKarine.css">
 </head>
+
 <body>
     <header>
         <div id="title">
-            <h1>MaKaJu Motus</h1>
+            <h1>MaKaJu</h1>
         </div>
-        <div>
-            <input id="startButton" type="submit" value="Commencer" onClick="this.disabled = true;" />
-            <!-- <button id="startButton" type="submit" value="Go" >Commencer</button> -->
+        <div id="divButton">
+            <button id="startButton">Commencer</button>
         </div>
     </header>
     <main>
@@ -21,51 +22,53 @@
             <table id="tableau">
 
 
-    </table>
+            </table>
+
+            <div id="keybord">
+                <div id="firstLign">
+                    <div class="letter"><button>A</button></div>
+                    <div class="letter"><button>Z</button></div>
+                    <div class="letter"><button>E</button></div>
+                    <div class="letter"><button>R</button></div>
+                    <div class="letter"><button>T</button></div>
+                    <div class="letter"><button>Y</button></div>
+                    <div class="letter"><button>U</button></div>
+                    <div class="letter"><button>I</button></div>
+                    <div class="letter"><button>O</button></div>
+                    <div class="letter"><button>P</button></div>
+                </div>
+                <div id="secondLign">
+                    <div class="letter"><button>Q</button></div>
+                    <div class="letter"><button>S</button></div>
+                    <div class="letter"><button>D</button></div>
+                    <div class="letter"><button>F</button></div>
+                    <div class="letter"><button>G</button></div>
+                    <div class="letter"><button>H</button></div>
+                    <div class="letter"><button>J</button></div>
+                    <div class="letter"><button>K</button></div>
+                    <div class="letter"><button>L</button></div>
+                    <div class="letter"><button>M</button></div>
+                </div>
+                <div id="thirdLign">
+                    <div class="letter"><button>W</button></div>
+                    <div class="letter"><button>X</button></div>
+                    <div class="letter"><button>C</button></div>
+                    <div class="letter"><button>V</button></div>
+                    <div class="letter"><button>B</button></div>
+                    <div class="letter"><button>N</button></div>
+                    <div class="letter"><button id="deleteButton">Effacer</button></div>
+                    <div class="letter"><button id="enterButton">Entrer</button></div>
+                </div>
+            </div>
 
 
-        </div>
-        <div>
-            Statistiques
-        </div>
-        <div id="keybord">
-            <div id="firstLign">
-                <div class="letter"><button>A</button></div>
-                <div class="letter"><button>Z</button></div>
-                <div class="letter"><button>E</button></div>
-                <div class="letter"><button>R</button></div>
-                <div class="letter"><button>T</button></div>
-                <div class="letter"><button>Y</button></div>
-                <div class="letter"><button>U</button></div>
-                <div class="letter"><button>I</button></div>
-                <div class="letter"><button>O</button></div>
-                <div class="letter"><button>P</button></div>
-            </div>
-            <div id="secondLign">
-                <div class="letter"><button>Q</button></div>
-                <div class="letter"><button>S</button></div>
-                <div class="letter"><button>D</button></div>
-                <div class="letter"><button>F</button></div>
-                <div class="letter"><button>G</button></div>
-                <div class="letter"><button>H</button></div>
-                <div class="letter"><button>J</button></div>
-                <div class="letter"><button>K</button></div>
-                <div class="letter"><button>L</button></div>
-                <div class="letter"><button>M</button></div>
-            </div>
-            <div id="thirdLign">
-                <div class="letter"><button>W</button></div>
-                <div class="letter"><button>X</button></div>
-                <div class="letter"><button>C</button></div>
-                <div class="letter"><button>V</button></div>
-                <div class="letter"><button>B</button></div>
-                <div class="letter"><button>N</button></div>
-                <div class="letter"><button id="deleteButton">DELETE</button></div>
-                <div class="letter"><button id="enterButton">ENTER</button></div>
+            <div id="stat">
+                <p4>STATISTIQUES: </p>
             </div>
         </div>
     </main>
 
     <script src="./indexKarine.js"></script>
 </body>
+
 </html>
