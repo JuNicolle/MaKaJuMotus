@@ -10,10 +10,8 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 // on tire au sort un mot
 
-// creation action du bouton commencer
-startButton.addEventListener('click', ()=>{
 
-
+function jouer(){
 // Definir un nombre au mot, et le tirer aleatoirement, puis découper ce mot
     let nbAlea=Math.floor(Math.random()*longueurListe);
     console.log(nbAlea);
@@ -27,9 +25,9 @@ startButton.addEventListener('click', ()=>{
     const ligne=document.createElement('tr');
     motDecoupe.forEach((lettre, index)=>{
         const cellule=document.createElement('td');
-        if (index===0){
+            if (index===0){
             cellule.textContent=lettre;
-        }
+            }
         ligne.appendChild(cellule);
 
 
@@ -55,7 +53,9 @@ for (let i=0; i<5;i++){
 
         });
     };
+};   
 
+// creation action du bouton commencer
+startButton.addEventListener('click', (jouer));
 
-});
 });
