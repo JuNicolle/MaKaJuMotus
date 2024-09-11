@@ -34,6 +34,7 @@ function jouer(){
     });
     tableau.appendChild(ligne);
 
+
 for (let i=0; i<5;i++){
     const ligneVide=document.createElement('tr');
     motDecoupe.forEach(()=>{
