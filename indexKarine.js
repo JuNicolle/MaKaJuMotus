@@ -73,8 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    
-
     // Création initiale du tableau
     creerTableau();
 
