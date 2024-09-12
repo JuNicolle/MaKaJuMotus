@@ -230,4 +230,24 @@ table {
     background: linear-gradient(rgba(36, 35, 35, 0.294), rgba(255, 255, 255, 0.477));
     opacity: 1.2;
 
+
 }
+
+@media (max-width:600px) {
+
+    body {
+        display: flex;
+        flex-direction: column;
+ justify-content: center;
+    }
+
+    * {
+    margin-top: 1vw;
+    }
+
+    header{
+        width:100%
+    }
+
+}
+
