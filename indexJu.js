@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 // Ajout des événements de clic sur chaque touche virtuelle
-lettresDivs.forEach(div => {
+lettre.forEach(div => {
   div.addEventListener("click", function() {
     const lettre = div.getAttribute("data-lettre");
     ajouterLettreDansTableau(lettre);
