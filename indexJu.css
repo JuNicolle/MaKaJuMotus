@@ -48,14 +48,14 @@ h1 {
     transition: all 0.5s;
     cursor: pointer;
     margin: 36px;
-    box-shadow: 0 10px 20px -8px rgba(134, 132, 132, 0.7);
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0, .7);
 }
 
 #startButton {
     cursor: pointer;
     display: inline-block;
     position: relative;
-    transition: 2s;
+    transition: 1.5s;
 }
 
 #startButton:after {
@@ -64,7 +64,7 @@ h1 {
     opacity: 0;
     top: 14px;
     right: -20px;
-    transition: 2s;
+    transition: 1s;
 }
 
 #startButton:hover {
@@ -111,26 +111,18 @@ table {
 
 #deleteButton {
     text-align: center;
-    width: 100%;
-
-}
-
-#enterButton{
-    text-align: center;
-    width: 100%;
+    width: 5vw;
 
 }
 
 #stat{
-    display: flex;
-    justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 5vw;
-    color: #fff;
+    
 }
 
 
-#keybord>#firstLign, #secondLign, #thirdLign {
+#keybord>#firstLign,
+#secondLign,
+#thirdLign {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -147,6 +139,5 @@ table {
     color: #fff;
     font-size: 2vw;
     text-align: center;
-
 
 }
