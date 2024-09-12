@@ -12,17 +12,12 @@
 
 body {
     background-color: var(--dark--);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-
 
 }
 
 header {
     width: 100%;
-    padding-bottom: 1vh;
+    padding-bottom: 5vh;
 
 }
 
@@ -31,25 +26,24 @@ header {
     color: #fff;
     display: flex;
     justify-content: center;
-    font-size: 4vw;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
+    font-size: 8vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
 
 }
 
 #lettreM {
-    height: 4vh;
-    line-height: 4vh;
 
     background-color: #A40606;
-
+    height: 10vh;
+    line-height: 10vh;
     box-shadow: 0 10px 20px -8px rgba(134, 132, 132, 0.7);
 
 }
 
 #lettreA {
-    height: 4vh;
-    line-height: 4vh;
+    height: 10vh;
+    line-height: 10vh;
 
 
 }
@@ -58,30 +52,30 @@ header {
     display: block;
     box-sizing: border-box;
     background-color: #FFE74C;
-    width: 3vw;
-    border-radius: 100px;
+    width: 6vw;
+    border-radius: 60px;
+    height: 10vh;
+    line-height: 10vh;
     box-shadow: 0 10px 20px -8px rgba(134, 132, 132, 0.7);
-    height: 4vh;
-    line-height: 4vh;
 }
 
 #lettreAbis {
-    height: 4vh;
-    line-height: 4vh;
+    height: 10vh;
+    line-height: 10vh;
 }
 
 #lettreJ {
     background-color: #A40606;
-    width: 3vw;
+    height: 10vh;
+    line-height: 10vh;
+    width: 6vw;
     text-align: center;
     box-shadow: 0 10px 20px -8px rgba(134, 132, 132, 0.7);
-    height: 4vh;
-    line-height: 4vh;
 }
 
 #lettreU {
-    height: 4vh;
-    line-height: 4vh;
+    height: 10vh;
+    line-height: 10vh;
 }
 
 #divButton {
@@ -91,17 +85,18 @@ header {
 }
 
 
+
 #startButton {
     border-radius: 10px;
     background-color: #5998c59d;
     border: none;
     color: #fff;
     text-align: center;
-    font-size: 1.5vw;
-    padding: 1vw;
+    font-size: 3vw;
+    padding: 2vw;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 1vw;
+    margin: 3vw;
     box-shadow: 0 10px 20px -8px rgba(134, 132, 132, 0.7);
 }
 
@@ -135,25 +130,25 @@ header {
 
 td {
     border: 3px solid var(--white--);
-    padding: 1vw;
+    padding: 3vw;
     color: var(--white--);
     background-color: var(--table--);
-    font-size: 2vw;
-    height: 1vw;
-    width: 1vw;
+    font-size: 3vw ;
+    height: 2vw;
+    width: 2vw;
 
 
 }
 
 tr {
     border: 3px solid var(--white--);
-    padding: 1vw;
+    padding: 3vw;
     color: var(--white--);
     background-color: var(--table--);
     font-size: 3vw;
-    height: 1vw;
-    width: 1vw;
-    font-size: 2vw;
+    height: 2vw;
+    width: 2vw;
+    font-size: 3vw;
 
 
 
@@ -162,41 +157,21 @@ tr {
 
 table {
     border-collapse: collapse;
+    margin: auto;
+    margin-bottom: 5vh;
 
-    margin-bottom: 2vh;
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
+
 
 
 }
-
-
-#divTableau {
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
-}
-
-#stat {
-    display: flex;
-    justify-content: center;
-    margin-top: 2vw;
-    color: #fff;
-    font-size: 1vw;
-}
-
 
 #keybord {
     display: flex;
     justify-content: center;
-    margin-left: 25%;
-    margin-right: 25%;
-    width: 50%;
+    width: 100%;
     flex-direction: column;
     gap: 1vw;
     align-content: center;
-
 }
 
 
@@ -212,14 +187,19 @@ table {
 
 }
 
+#stat {
+    display: flex;
+    justify-content: center;
+    margin-top: 5vw;
+    color: #fff;
+}
+
 
 #keybord>#firstLign,
 #secondLign,
 #thirdLign {
     display: flex;
-    margin-left: 25%;
-    margin-right: 25%;
-    width: 50%;
+    width: 100%;
     justify-content: center;
     text-align: center;
     gap: 1vw;
@@ -230,29 +210,26 @@ table {
 .letter {
     display: flex;
     align-content: center;
-    border-radius: 10px;
-
-
 
 }
 
 .letter>button {
 
-    padding: 0.5vw;
+    padding: 2.5vw;
     background: linear-gradient(rgba(36, 35, 35, 0.294), rgba(255, 255, 255, 0.477));
-    border-radius: 30px;
+    border-radius: 10px;
     color: #fff;
     font-size: 2vw;
     text-align: center;
     align-items: center;
     opacity: 0.5;
 
-
 }
 
 .letter>button:hover {
     background: linear-gradient(rgba(36, 35, 35, 0.294), rgba(255, 255, 255, 0.477));
     opacity: 1.2;
+
 
 }
 

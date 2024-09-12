@@ -1,61 +1,118 @@
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener("DOMContentLoaded", () => {
+  // on cree la liste de mots
+  const listeMots = ["TOTO", "TOTOMOTO", "MAISON"];
+  // console.log(listeMots.length);
+  console.log(listeMots);
+  // on calcule le nombre de mots
+  let longueurListe = listeMots.length;
+  console.log(longueurListe);
 
-    // on cree la liste de mots
-    const listeMots=["TOTO","TOTOMOTO","MAISON"];
-    // console.log(listeMots.length);
-    console.log(listeMots);
-// on calcule le nombre de mots
-    let longueurListe=listeMots.length;
-    console.log(longueurListe);
-    // on tire au sort un mot
+  // on tire au sort un mot
 
+  function jouer() {
+    // Definir un nombre au mot, et le tirer aleatoirement, puis découper ce mot
+    let nbAlea = Math.floor(Math.random() * longueurListe);
+    console.log(nbAlea);
+    let motAtrouver = listeMots[nbAlea];
+    console.log(motAtrouver.length);
+    let motDecoupe = motAtrouver.split("");
+    console.log(motDecoupe);
 
+    // Creer un tableau avec le mot, n'afficher que la premiere lettre
+    // Si l'index est 0 : affiche la lettre 0 (premiere lettre)
+    // Si l'index est autre : affiche les lettres correspondantes
 
+    // TEST CODE
+    const tableau = document.getElementById("tableau");
+    const clavier = document.getElementById("keybord");
 
-    function jouer(){
-        // on va chercher un mot au hasars
-     let nbAlea=Math.floor(Math.random()*longueurListe);
-     console.log(nbAlea);
-    //  on veut la longueur du mot aleatoire
-     let motAtrouver = listeMots[nbAlea];
-      console.log(motAtrouver.length);
-    //   on veut que le mot soit decoupe en lettres
-      let motDecoupe=motAtrouver.split('');
-      console.log(motDecoupe);
+    function creerTableau() {
+      const ligne1 = document.createElement("tr");
+      ligne1.id = "ligne-1";
 
-      const tableau=document.getElementById('tableau')
-      const ligne=document.createElement('tr');
-        motDecoupe.forEach((lettre, index)=>{
-        let cellule=document.createElement('td');
-        if (index===0){
-            cellule.textContent=lettre;
-        };
-        ligne.appendChild(cellule);
+      motDecoupe.forEach((lettre, index) => {
+        const cellule = document.createElement("td");
+        cellule.textContent = index === 0 ? lettre : "-";
+        ligne1.appendChild(cellule);
+      });
+
+      tableau.appendChild(ligne1);
+
+      // Création de 5 lignes vides
+      for (let i = 0; i < 5; i++) {
+        const ligneVide = document.createElement("tr");
+        ligneVide.setAttribute("id", "ligne-" + (i + 1));
+
+        motDecoupe.forEach(() => {
+          const celluleVide = document.createElement("td");
+          ligneVide.appendChild(celluleVide);
         });
-        tableau.appendChild(ligne);
+        tableau.appendChild(ligneVide);
+      }
+    }
+    // Fonction pour gérer le clic sur une touche virtuelle
+    function ajouterLettreDansTableau(lettre) {
+      const lignes = tableau.getElementsByTagName("tr");
 
-        // on demande à ce que quand on clique sur une lettre, la lettre soit affichee en console
-        const letters = document.getElementsByClassName("letter");
-        // let cellule=document.createElement('td');
+      for (let i = 0; i < lignes.length; i++) {
+        const cellules = lignes[i].getElementsByTagName("td");
+        for (let j = 0; j < cellules.length; j++) {
+          if (cellules[j].textContent === "-") {
+            cellules[j].textContent = lettre;
+            return; // On arrête dès qu'on a ajouté la lettre
+          }
+        }
+      }
+    }
 
+    // Ajout des événements de clic sur chaque touche virtuelle
+    clavier.addEventListener("click", function (event) {
+      if (event.target.tagName === "BUTTON") {
+        const lettre = event.target.getAttribute("data-lettre");
+        ajouterLettreDansTableau(lettre);
+      }
+    });
 
+    // Création initiale du tableau
+    creerTableau();
 
-// on veut que la console affiche la lettre du clavier associee
-      for (let i=0; i < letters.length; i++){
-        letters[i].addEventListener('click' , () => {
-        console.log (letters[i].innerText);  
-        let contenuCellule=document.getElementById(cellule);
-        contenuCellule = letters[i].innerHtml;         
-        });
-    };
-};
+    // const tableau = document.getElementById("tableau");
+    // const ligne1 = document.createElement("tr");
+    // ligne1.id='ligne-1';
+    // motDecoupe.forEach((lettre, index) => {
+    //   const cellule = document.createElement("td");
+    //   if (index === 0) {
+    //     cellule.textContent = lettre;
+    //     }
+    //   else if (index === 1,2,3,4,6,7,8,9){
+    //     cellule.textContent='-'
+    //     }
+    //   ligne1.appendChild(cellule);
+    // });
+    // tableau.appendChild(ligne1);
 
-// creation action du bouton commencer - qaund on clique, on active la fonction jouer
-startButton.addEventListener('click', (jouer));
+    // for (let i = 0; i < 5; i++) {
+    //   const ligneVide = document.createElement("tr");
+    // // Les tr prennent des ID qui s'incrementent auto
+    //   ligneVide.setAttribute('id','ligne-'+(i+1));
 
+    //   motDecoupe.forEach(() => {
+    //     const celluleVide = document.createElement("td");
+    //     ligneVide.appendChild(celluleVide);
+    //   });
+    //   tableau.appendChild(ligneVide);
+    // };
 
-// let td1 = document.getElementById('td');
-// td1.insertAdjacentHTML("afterend", '<tr id="d">two</div>');
+    // Attitrer les cases a l'ecran aux lettres de l'alphabet
+    const letters = document.getElementsByClassName("letter");
 
+    for (let i = 0; i < letters.length; i++) {
+      letters[i].addEventListener("click", () => {
+        console.log(letters[i].innerText);
+      });
+    }
+  }
 
+  // creation action du bouton commencer
+  startButton.addEventListener("click", jouer);
 });
