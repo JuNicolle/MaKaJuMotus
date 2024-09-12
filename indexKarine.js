@@ -42,6 +42,7 @@ for (let i=0; i<5;i++){
       ligneVide.appendChild(celluleVide);
   });
   tableau.appendChild(ligneVide);
+  
 }
 
 
@@ -51,7 +52,7 @@ for (let i=0; i<5;i++){
   for (let i=0; i < letters.length; i++){
       letters[i].addEventListener('click' , () => {
       console.log (letters[i].innerText);
-      td.innerText += letters[i].innerText;
+    tr.innerText += letters[i].innerText;
 
       });
   };
