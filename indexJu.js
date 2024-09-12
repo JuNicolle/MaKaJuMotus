@@ -65,11 +65,57 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    // ajout fonction supprimer lettre
+    // function supprimerLaDerniereLettre() {
+    //   const lignes = tableau.getElementsByTagName("tr");
+    //   // for (let i = 0; i < lignes.length; i++) {
+    //     console.log("test");
+    //     const cellules = lignes[i].getElementsByTagName("td");
+    //     for (let j = 0; j < cellules.length; j++) {
+    //       cellules[j].textContent = "eeee";
+    //       console.log(cellules[j]);
+    //     }
+    //   }
+    // }
+
+    // cellules[j].remove();  ----- enleve une colonne
+
+    // function ajouterLettreDansTableau(lettre) {
+    //   const lignes = tableau.getElementsByTagName("tr");
+
+    //   for (let i = 0; i < lignes.length; i++) {
+    //     const cellules = lignes[i].getElementsByTagName("td");
+    //     for (let j = 0; j < cellules.length; j++) {
+    //       if (cellules[j].textContent === "-") {
+    //         cellules[j].textContent = lettre;
+    //         return; // On arrête dès qu'on a ajouté la lettre
+    //       }
+    //     }
+    //   }
+    // }
+
+    // Ajout des événements de clic sur chaque touche virtuelle
+    const deleteButton = document.getElementById("deleteButton");
+    const enterButton = document.getElementById("enterButton");
+
+    console.log(deleteButton);
+
     // Ajout des événements de clic sur chaque touche virtuelle
     clavier.addEventListener("click", function (event) {
       if (event.target.tagName === "BUTTON") {
-        const lettre = event.target.getAttribute("data-lettre");
-        ajouterLettreDansTableau(lettre);
+        if (event.target === deleteButton) {
+          console.log("milou");
+          supprimerLaDerniereLettre();
+          console.log(deleteButton.textContent);
+        } 
+        else if (event.target === enterButton) {
+          console.log("tata");
+          entrerReponse();
+          console.log(enterButton.textContent);
+        } else {
+          const lettre = event.target.getAttribute("data-lettre");
+          ajouterLettreDansTableau(lettre);
+        }
       }
     });
 

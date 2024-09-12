@@ -35,15 +35,12 @@ header {
 #lettreM {
 
     background-color: #A40606;
-    height: 10vh;
-    line-height: 10vh;
     box-shadow: 0 10px 20px -8px rgba(134, 132, 132, 0.7);
 
 }
 
 #lettreA {
-    height: 10vh;
-    line-height: 10vh;
+
 
 
 }
@@ -52,30 +49,21 @@ header {
     display: block;
     box-sizing: border-box;
     background-color: #FFE74C;
-    width: 6vw;
     border-radius: 60px;
-    height: 10vh;
-    line-height: 10vh;
     box-shadow: 0 10px 20px -8px rgba(134, 132, 132, 0.7);
 }
 
 #lettreAbis {
-    height: 10vh;
-    line-height: 10vh;
 }
 
 #lettreJ {
     background-color: #A40606;
-    height: 10vh;
-    line-height: 10vh;
-    width: 6vw;
     text-align: center;
     box-shadow: 0 10px 20px -8px rgba(134, 132, 132, 0.7);
 }
 
 #lettreU {
-    height: 10vh;
-    line-height: 10vh;
+
 }
 
 #divButton {
@@ -250,4 +238,3 @@ table {
     }
 
 }
-
