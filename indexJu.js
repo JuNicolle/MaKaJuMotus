@@ -66,11 +66,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 // Ajout des événements de clic sur chaque touche virtuelle
-clavier.addEventListener("click", function(event) {
-  if (event.target.tagName === "BUTTON") {
-    const lettre = event.target.getAttribute("data-lettre");
+lettresDivs.forEach(div => {
+  div.addEventListener("click", function() {
+    const lettre = div.getAttribute("data-lettre");
     ajouterLettreDansTableau(lettre);
-  }
+  });
 });
 
 // Création initiale du tableau
