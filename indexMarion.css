@@ -10,26 +10,44 @@
     font-family: "Lexend", sans-serif;
 }
 
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dark--);
+}
+
+
+
+html {
+    min-height: 100%;
+}
+
 body {
     background-color: var(--dark--);
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
+    min-height: 100%;
 
 }
 
-main{
-    margin-right: 25%;
-    margin-left: 25%;
+main {
+
+    margin: auto;
 
 }
 
 header {
-
+    padding-top: 1vh;
     padding-bottom: 2vh;
-    margin-right: 25%;
-    margin-left: 25%;
-
+    margin: auto;
 
 
 }
@@ -39,12 +57,10 @@ header {
     color: #fff;
     display: flex;
     justify-content: center;
-    font-size: 3vw;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
-    margin-left: 25%;
-    margin-right: 25%;
+    font-size: 5vw;
 
+    padding-bottom: 2vh;
+    margin: auto;
 }
 
 #lettreM {
@@ -58,15 +74,15 @@ header {
 
 
 
-
-
-
 #lettreK {
-    display: block;
-    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     background-color: #FFE74C;
 
-    border-radius: 100px;
+    border-radius: 60%;
+
 
     box-shadow: 0 10px 20px -8px rgba(134, 132, 132, 0.7);
 }
@@ -85,8 +101,8 @@ header {
 #divButton {
     display: flex;
     justify-content: center;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin: auto;
+    width: 100%;
 }
 
 
@@ -137,9 +153,8 @@ table {
     border-collapse: collapse;
 
     margin-bottom: 2vh;
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
+
+    margin: auto;
 
 
 }
@@ -148,13 +163,15 @@ table {
 
 
 td {
+
     border: 3px solid var(--white--);
     padding: 1vw;
     color: var(--white--);
     background-color: var(--table--);
     font-size: 2vw;
-    height: 1vw;
-    width: 1vw;
+    height: 2vh;
+    width: 2vw;
+    text-align: center;
 
 
 }
@@ -164,19 +181,20 @@ tr {
     padding: 1vw;
     color: var(--white--);
     background-color: var(--table--);
-    font-size: 3vw;
-    height: 1vw;
-    width: 1vw;
+    height: 2vh;
+    width: 2vw;
     font-size: 2vw;
+    text-align: center;
 
 
 
 }
 
 #divTableau {
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 10vh;
+
 }
 
 
@@ -184,11 +202,13 @@ tr {
 #keybord {
     display: flex;
     justify-content: center;
-
-
+    padding-top: 2vh;
+padding-bottom: 2vh;
     flex-direction: column;
     gap: 1vw;
     align-content: center;
+    margin: auto;
+
 }
 
 
@@ -204,13 +224,6 @@ tr {
 
 }
 
-#stat {
-    display: flex;
-    justify-content: center;
-    margin-top: 2vw;
-    color: #fff;
-    font-size: 1vw;
-}
 
 
 #keybord>#firstLign,
@@ -253,21 +266,25 @@ tr {
 
 }
 
-@media (max-width:600px) {
+
+/* RESPONSIVE */
+
+@media (max-width:630px) {
 
     body {
         display: flex;
         flex-direction: column;
- justify-content: center;
+        justify-content: center;
+
     }
 
     * {
-    margin-top: 1vw;
+        margin-top: 1vw;
     }
 
 
-    #title{
-        font-size: 9vw;
+    #title {
+        font-size: 8vw;
     }
 
     #startButton {
@@ -283,14 +300,14 @@ tr {
         margin: 3vw;
         box-shadow: 0 10px 20px -8px rgba(134, 132, 132, 0.7);
     }
-    
+
     #startButton {
         cursor: pointer;
         display: inline-block;
         position: relative;
         transition: 2s;
     }
-    
+
     #startButton:after {
         content: '»';
         position: absolute;
@@ -299,12 +316,12 @@ tr {
         right: -3vw;
         transition: 4s;
     }
-    
+
     #startButton:hover {
         padding-right: 4vw;
         padding-left: 4vw;
     }
-    
+
     #startButton:hover:after {
         opacity: 1;
         right: 1vw;
@@ -314,39 +331,39 @@ tr {
         border-collapse: collapse;
         margin: auto;
         margin-bottom: 5vh;
-    
+
     }
 
     td {
-        border: 3px solid var(--white--);
+        border: 2px solid var(--white--);
         padding: 3vw;
         color: var(--white--);
         background-color: var(--table--);
-        font-size: 3vw ;
+        font-size: 3vw;
         height: 2vw;
         width: 2vw;
-    
-    
+
+
     }
-    
+
     tr {
-        border: 3px solid var(--white--);
+        border: 2px solid var(--white--);
         padding: 3vw;
         color: var(--white--);
         background-color: var(--table--);
-        font-size: 3vw;
+        font-size: 5vw;
         height: 2vw;
         width: 2vw;
         font-size: 3vw;
-    
-    
-    
+
+
+
     }
 
 
     .letter>button {
 
-        padding: 2.5vw;
+        padding: 2vw;
         background: linear-gradient(rgba(36, 35, 35, 0.294), rgba(255, 255, 255, 0.477));
         border-radius: 10px;
         color: #fff;
@@ -354,9 +371,41 @@ tr {
         text-align: center;
         align-items: center;
         opacity: 0.5;
-    
+
+    }
+
+    #keybord {
+        margin: auto;
     }
 }
 
 
 
+@media (min-width: 630px) and (max-width: 1024px) {
+    #title {
+        font-size: 7vw;
+    }
+
+    #startButton {
+        font-size: 2vw;
+        padding: 1.5vw;
+        margin: 2vw;
+    }
+
+    table {
+
+        margin: auto;
+        margin-bottom: 3vh;
+    }
+
+    td,
+    tr {
+        font-size: 2vw;
+        padding: 1.5vw;
+    }
+
+    .letter>button {
+        padding: 1vw;
+        font-size: 2.5vw;
+    }
+}
