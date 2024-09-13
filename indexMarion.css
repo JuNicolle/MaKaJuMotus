@@ -266,6 +266,21 @@ padding-bottom: 2vh;
 
 }
 
+.red{
+    background-color: #A40606;
+    color: #fff;
+}
+
+.yellow{
+    background-color: #FFE74C;
+    border-radius: 50%;
+    color: #fff;
+}
+
+.grey{
+    background-color: darkgray;
+    color: #fff;
+}
 
 /* RESPONSIVE */
 

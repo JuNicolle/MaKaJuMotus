@@ -102,21 +102,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // Affichage visuel pour chaque lettre tapée dans le tableau 
   tentativeLettres.forEach((lettre, index) => {
     const cellule = lignes[0].children[index];
-
+    console.log(cellule)
     if (lettre === motDecoupe[index]) {
-      cellule.style.backgroundColor = "green";
+      cellule.className = ("class","red");
     } else if (motDecoupe.includes(lettre)) {
-      cellule.style.backgroundColor = "orange";
+      cellule.className = ("yellow");
     } else {
-      cellule.style.backgroundColor = "gray";
+      cellule.className = ("grey");
     };
   });
-  
-  if (tentative === motAtrouver) {
-    alert("Bravo ! Vous avez trouvé le mot.");
-  } else {
-    alert("Essai incorrect. Réessayez !");
-  };
 };
 
   // Ajout des événements de clic sur chaque touche virtuelle

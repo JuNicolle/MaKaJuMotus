@@ -88,12 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
           cellule.style.backgroundColor = "gray";
         }
       });
-
-      if (tentative === motAtrouver) {
-        alert("Bravo ! Vous avez trouvé le mot.");
-      } else {
-        alert("Essai incorrect. Réessayez !");
-      }
     }
 
     clavier.addEventListener("click", function (event) {
