@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // on cree la liste de mots
-  const listeMots = ["TOTO", "TOTOMOTO", "MAISON"];
+  const listeMots = ["TOTO", "TOTOMOTO", "MAISON", "DEVELOPPEMENT"];
   // console.log(listeMots.length);
   console.log(listeMots);
   // on calcule le nombre de mots
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Création de 5 lignes vides
       for (let i = 0; i < 5; i++) {
         const ligneVide = document.createElement("tr");
-        ligneVide.setAttribute("id", "ligne-" + (i + 1));
+        ligneVide.setAttribute("id", "ligne-" + (i + 2));
 
         motDecoupe.forEach(() => {
           const celluleVide = document.createElement("td");
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         tableau.appendChild(ligneVide);
       }
     }
-    // Fonction pour gérer le clic sur une touche virtuelle
+  // Fonction pour gérer le clic sur une touche virtuelle
     function ajouterLettreDansTableau(lettre) {
       const lignes = tableau.getElementsByTagName("tr");
 
@@ -73,14 +73,14 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
   // Fonction pour effacer la dernière lettre
-  function supprimerLaDerniereLettre() {
-    const lignes = tableau.getElementsByTagName("tr");
+    function supprimerLaDerniereLettre() {
+      const lignes = tableau.getElementsByTagName("tr");
 
-    for (let i = lignes.length - 1; i >= 0; i--) {
+    for (let i = 1; i< lignes.length - 1; i--) {
       const cellules = lignes[i].getElementsByTagName("td");
-      for (let j = cellules.length - 1; j >= 0; j--) {
+      for (let j = cellules.length - 1; j > 0; j--) {
         if (cellules[j].textContent !== "-" && cellules[j].textContent !== "") {
-          cellules[j].textContent = cellules[j].textContent.slice(0, -1);
+          cellules[j].textContent = "-"
           return;
         };
       };
@@ -91,7 +91,13 @@ document.addEventListener("DOMContentLoaded", () => {
   function entrerReponse() {
     const lignes = tableau.getElementsByTagName("tr");
     let tentative = "";
+  //   const ligneActuelle = lignes[ligneIndex];
   
+  //   let motSaisi = "";
+  // for (let i = 0; i < cellules.length; i++) {
+  //   motSaisi += cellules[i].textContent;
+  // }
+
   // Construire la réponse de l'utilisateur à partir de la première ligne du tableau
   for (let i = 0; i < lignes[0].children.length; i++) {
     tentative += lignes[0].children[i].textContent;
