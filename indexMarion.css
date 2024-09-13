@@ -167,7 +167,8 @@ td {
     border: 3px solid var(--white--);
     padding: 1vw;
     color: var(--white--);
-    background-color: var(--table--);
+    -webkit-background-color: #5998c5;
+    background-color: #5998c5;
     font-size: 2vw;
     height: 2vh;
     width: 2vw;
@@ -180,7 +181,8 @@ tr {
     border: 3px solid var(--white--);
     padding: 1vw;
     color: var(--white--);
-    background-color: var(--table--);
+    -webkit-background-color: #5998c5;
+    background-color: #5998c5;
     height: 2vh;
     width: 2vw;
     font-size: 2vw;
