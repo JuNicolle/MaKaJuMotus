@@ -193,20 +193,20 @@ tr {
 
 #tableau{
     transition : 0.5s;
-    /* animation: slide 2s ease-in-out; */
+    animation: slide 2s ease-in-out;
     box-shadow: 0 10px 20px -8px rgba(134, 132, 132, 0.7);
 
+}
 
-
-/* @keyframes slide {
+@keyframes slide {
     0% {
         translate : 100%;
     }
     25%{
         translate : -100%;
     }
-}  */
-    animation: bounce-in-right 2s ease-in-out forwards;}
+} 
+    /* animation: bounce-in-right 2s ease-in-out forwards;}
 
   @keyframes bounce-in-right {
     0% {
@@ -219,7 +219,7 @@ tr {
     }
     80% { transform: translateX(10px); }
     100% { transform: translateX(0); }
-  }
+  } */
 
 
 /* #tableau:hover{
