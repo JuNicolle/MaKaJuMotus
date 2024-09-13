@@ -66,34 +66,29 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // ajout fonction supprimer lettre
+    // ajout fonction supprimer lettre - cette fonction marche
     function supprimerLaDerniereLettre(j) {
       const lignes = tableau.getElementsByTagName("tr");
-      for (let i = 0; i < lignes.length; i++) {
-        console.log("test");
-        const cellules = lignes[i].getElementsByTagName("td");
-        for (let j = 0; j < cellules.length; j++) {
-          cellules[j].textContent = "eeee";
-          console.log(cellules[j]);
-        }
+  
+    for (let i = 0; i < lignes.length; i++) {
+      const cellules = lignes[i].getElementsByTagName("td");
+      for (let j = 1; j < cellules.length; j++) {
+        if (cellules[j].textContent === "-" && cellules[j]!="") {
+          console.log("je veux effacer");
+          cellules[j-1].textContent = "-";
+          return; // On arrête dès qu'on a supprimé la lettre
+
+
+        
       }
     }
+  }
+  
 
-    // cellules[j].remove();  ----- enleve une colonne
 
-    // function ajouterLettreDansTableau(lettre) {
-    //   const lignes = tableau.getElementsByTagName("tr");
 
-    //   for (let i = 0; i < lignes.length; i++) {
-    //     const cellules = lignes[i].getElementsByTagName("td");
-    //     for (let j = 0; j < cellules.length; j++) {
-    //       if (cellules[j].textContent === "-") {
-    //         cellules[j].textContent = lettre;
-    //         return; // On arrête dès qu'on a ajouté la lettre
-    //       }
-    //     }
-    //   }
-    // }
+  
+
 
     // Ajout des événements de clic sur chaque touche virtuelle
     const deleteButton = document.getElementById("deleteButton");
@@ -125,32 +120,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Création initiale du tableau
     creerTableau();
 
-    // const tableau = document.getElementById("tableau");
-    // const ligne1 = document.createElement("tr");
-    // ligne1.id='ligne-1';
-    // motDecoupe.forEach((lettre, index) => {
-    //   const cellule = document.createElement("td");
-    //   if (index === 0) {
-    //     cellule.textContent = lettre;
-    //     }
-    //   else if (index === 1,2,3,4,6,7,8,9){
-    //     cellule.textContent='-'
-    //     }
-    //   ligne1.appendChild(cellule);
-    // });
-    // tableau.appendChild(ligne1);
-
-    // for (let i = 0; i < 5; i++) {
-    //   const ligneVide = document.createElement("tr");
-    // // Les tr prennent des ID qui s'incrementent auto
-    //   ligneVide.setAttribute('id','ligne-'+(i+1));
-
-    //   motDecoupe.forEach(() => {
-    //     const celluleVide = document.createElement("td");
-    //     ligneVide.appendChild(celluleVide);
-    //   });
-    //   tableau.appendChild(ligneVide);
-    // };
 
     // Attitrer les cases a l'ecran aux lettres de l'alphabet
     const letters = document.getElementsByClassName("letter");

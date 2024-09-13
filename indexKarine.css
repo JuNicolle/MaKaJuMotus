@@ -269,3 +269,19 @@ table {
     }
 
 }
+
+
+/* function supprimerLaDerniereLettre(j) {
+    const lignes = tableau.getElementsByTagName("tr");
+
+  for (let i = 0; i < lignes.length; i++) {
+    const cellules = lignes[i].getElementsByTagName("td");
+    for (let j = 1; j < cellules.length; j++) {
+      if (cellules[j].textContent === "-" && cellules[j]!="") {
+        console.log("je veux effacer");
+        cellules[j-1].textContent = "-";
+        return; // On arrête dès qu'on a supprimé la lettre
+      }
+    }
+  }
+} */
