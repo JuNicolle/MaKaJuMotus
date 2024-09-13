@@ -39,6 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       //Faire spawn le mot découpé dans le tableau, ligne 1
 
+      //Faire spawn le mot découpé dans le tableau, ligne 1
+
       motDecoupe.forEach((lettre, index) => {
         const cellule = document.createElement("td");
         cellule.textContent = index === 0 ? lettre : "-";
@@ -179,14 +181,46 @@ document.addEventListener("DOMContentLoaded", () => {
           ajouterLettreDansTableau(lettre);
         };
       };
+        if (event.target === deleteButton) {
+          supprimerLaDerniereLettre();
+          console.log(deleteButton.textContent);
+        } 
+        else if (event.target === enterButton) {
+          entrerReponse();
+          console.log(enterButton.textContent);
+        } else {
+          const lettre = event.target.getAttribute("data-lettre");
+          ajouterLettreDansTableau(lettre);
+        };
+      };
     });
 
     creerTableau();
   }
    
   const startButton = document.getElementById("startButton");
+  }
+   
+  const startButton = document.getElementById("startButton");
   startButton.addEventListener("click", jouer);
 });
+
+ // Attitrer les cases a l'ecran aux lettres de l'alphabet
+//  const letters = document.getElementsByClassName("letter");
+
+//  for (let i = 0; i < letters.length; i++) {
+//    letters[i].addEventListener("click", () => {
+//      console.log(letters[i].innerText);
+//    });
+//  }
+// }
+
+
+    // Creer un tableau avec le mot, n'afficher que la premiere lettre
+    // Si l'index est 0 : affiche la lettre 0 (premiere lettre)
+    // Si l'index est autre : affiche les lettres correspondantes
+
+  
 
  // Attitrer les cases a l'ecran aux lettres de l'alphabet
 //  const letters = document.getElementsByClassName("letter");

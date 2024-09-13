@@ -1,13 +1,14 @@
 :root {
     --dark--: #2A2B2E;
     --red--: #A40606;
-    --yellow--: #FFE74C;
+    --yellow--: #dbc42c;
     --table--: #5998c5;
     --white--: #FFFBFE;
 }
 
 * {
     font-family: "Lexend", sans-serif;
+    
 }
 
 
@@ -45,7 +46,7 @@ main {
 }
 
 header {
-    padding-top: 1vh;
+    padding-top: 3vh;
     padding-bottom: 2vh;
     margin: auto;
 
@@ -79,7 +80,7 @@ header {
     justify-content: center;
     align-items: center;
 
-    background-color: #FFE74C;
+    background-color: var(--yellow--);
 
     border-radius: 60%;
 
@@ -192,12 +193,40 @@ tr {
 
 }
 
-#divTableau {
-    width: 100%;
-    max-width: 1200px;
-    margin-bottom: 10vh;
+#tableau{
+    transition : 0.5s;
+    animation: slide 2s ease-in-out;
+    box-shadow: 0 10px 20px -8px rgba(134, 132, 132, 0.7);
 
 }
+
+@keyframes slide {
+    0% {
+        translate : 100%;
+    }
+    25%{
+        translate : -100%;
+    }
+} 
+    /* animation: bounce-in-right 2s ease-in-out forwards;}
+
+  @keyframes bounce-in-right {
+    0% {
+      opacity: 0;
+      transform: translateX(3000px);
+    }
+    60% {
+      opacity: 1;
+      transform: translateX(-30px);
+    }
+    80% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+  } */
+
+
+/* #tableau:hover{
+    scale:1.1
+} */
 
 
 
@@ -205,7 +234,7 @@ tr {
     display: flex;
     justify-content: center;
     padding-top: 2vh;
-padding-bottom: 2vh;
+padding-bottom: 3vh;
     flex-direction: column;
     gap: 1vw;
     align-content: center;
@@ -246,26 +275,50 @@ padding-bottom: 2vh;
     align-content: center;
     border-radius: 10px;
 
+
 }
 
 .letter>button {
 
-    padding: 0.5vw;
+    padding: 0.7vw;
     background: linear-gradient(rgba(36, 35, 35, 0.294), rgba(255, 255, 255, 0.477));
     border-radius: 10px;
     color: #fff;
-    font-size: 2vw;
+    font-size: 1.5vw;
     text-align: center;
     align-items: center;
     opacity: 0.5;
+    transition:0.5s;
+    cursor: pointer;
+
 
 }
 
 .letter>button:hover {
     background: linear-gradient(rgba(36, 35, 35, 0.294), rgba(255, 255, 255, 0.477));
     opacity: 1.2;
+    scale:1.2;
 
 
+
+}
+
+/* NOUVEAU STYLE LETTRES JS */
+
+.red{
+    background-color: #A40606;
+    color: #fff;
+}
+
+.yellow{
+    background-color: var(--yellow--);
+    border-radius: 50%;
+    color: #fff;
+}
+
+.grey{
+    background-color: darkgray;
+    color: #fff;
 }
 
 .red{
@@ -301,7 +354,7 @@ padding-bottom: 2vh;
 
 
     #title {
-        font-size: 8vw;
+        font-size: 12vw;
     }
 
     #startButton {
@@ -348,6 +401,7 @@ padding-bottom: 2vh;
         border-collapse: collapse;
         margin: auto;
         margin-bottom: 5vh;
+        width: 50%;
 
     }
 
@@ -398,7 +452,9 @@ padding-bottom: 2vh;
 
 
 
-@media (min-width: 630px) and (max-width: 1024px) {
+
+
+@media (min-width: 630px) and (max-width: 1200px) {
     #title {
         font-size: 7vw;
     }
