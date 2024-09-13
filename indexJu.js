@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(motAtrouver.length);
     let motDecoupe = motAtrouver.split("");
     console.log(motDecoupe);
+    let ligneIndex = 0; 
+    let lettresCorrectes = Array(motDecoupe.length).fill(null); 
   
        // Attitrer les cases a l'ecran aux lettres de l'alphabet
  const letters = document.getElementsByClassName("letter");
@@ -87,37 +89,74 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   };
 
-  // Fonction pour vérifier la réponse
   function entrerReponse() {
     const lignes = tableau.getElementsByTagName("tr");
-    let tentative = "";
-  //   const ligneActuelle = lignes[ligneIndex];
+    const ligneActuelle = lignes[ligneIndex]; // Récupère la ligne actuelle où l'utilisateur saisit le mot
+    const cellules = ligneActuelle.getElementsByTagName("td");
   
-  //   let motSaisi = "";
-  // for (let i = 0; i < cellules.length; i++) {
-  //   motSaisi += cellules[i].textContent;
-  // }
-
-  // Construire la réponse de l'utilisateur à partir de la première ligne du tableau
-  for (let i = 0; i < lignes[0].children.length; i++) {
-    tentative += lignes[0].children[i].textContent;
+    let motSaisi = "";
+    for (let i = 0; i < cellules.length; i++) {
+      motSaisi += cellules[i].textContent;
+    }
+  
+    // Comparer le mot saisi avec le mot à trouver
+    for (let i = 0; i < motDecoupe.length; i++) {
+      if (motSaisi[i] === motDecoupe[i]) {
+        // Lettre à la bonne place
+        cellules[i].className = ("class","red");
+        lettresCorrectes[i] = motDecoupe[i]; // Marquer la lettre correcte pour la prochaine ligne
+      } else if (motDecoupe.includes(motSaisi[i])) {
+        // Lettre correcte mais mauvaise position
+        cellules[i].className = ("yellow");
+      } else {
+        // Lettre incorrecte
+        cellules[i].className = ("grey");
+      }
+    }
+  
+    // Passer les lettres correctes à la ligne suivante
+    if (ligneIndex < lignes.length - 1) { // Vérifier qu'il y a encore des lignes
+      const prochaineLigne = lignes[ligneIndex + 1].getElementsByTagName("td");
+  
+      // Copier les lettres correctes sur la prochaine ligne
+      for (let i = 0; i < lettresCorrectes.length; i++) {
+        if (lettresCorrectes[i] !== null) {
+          prochaineLigne[i].textContent = lettresCorrectes[i]; // Afficher la lettre correcte
+        }
+      }
+    }
+  
+    // Incrémenter l'index de ligne pour passer à la ligne suivante
+    ligneIndex++;
   }
+
+
+  // Fonction pour vérifier la réponse
+//   function entrerReponse() {
+//     const lignes = tableau.getElementsByTagName("tr");
+//     let tentative = "";
   
-  const tentativeLettres = tentative.split("");
+
+//   // Construire la réponse de l'utilisateur à partir de la première ligne du tableau
+//   for (let i = 0; i < lignes[0].children.length; i++) {
+//     tentative += lignes[0].children[i].textContent;
+//   }
   
-  // Affichage visuel pour chaque lettre tapée dans le tableau 
-  tentativeLettres.forEach((lettre, index) => {
-    const cellule = lignes[0].children[index];
-    console.log(cellule)
-    if (lettre === motDecoupe[index]) {
-      cellule.className = ("class","red");
-    } else if (motDecoupe.includes(lettre)) {
-      cellule.className = ("yellow");
-    } else {
-      cellule.className = ("grey");
-    };
-  });
-};
+//   const tentativeLettres = tentative.split("");
+  
+//   // Affichage visuel pour chaque lettre tapée dans le tableau 
+//   tentativeLettres.forEach((lettre, index) => {
+//     const cellule = lignes[0].children[index];
+//     console.log(cellule)
+//     if (lettre === motDecoupe[index]) {
+//       cellule.className = ("class","red");
+//     } else if (motDecoupe.includes(lettre)) {
+//       cellule.className = ("yellow");
+//     } else {
+//       cellule.className = ("grey");
+//     };
+//   });
+// };
 
   // Ajout des événements de clic sur chaque touche virtuelle
     const deleteButton = document.getElementById("deleteButton");
