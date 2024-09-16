@@ -7,6 +7,14 @@
     --white--: #FFFBFE;
 }
 
+:root {
+    --dark--: #2A2B2E;
+    --red--: #A40606;
+    --yellow--: #FFE74C;
+    --table--: #5998c5;
+    --white--: #FFFBFE;
+}
+
 * {
     font-family: "Lexend", sans-serif;
 }
@@ -382,3 +390,4 @@ function supprimerLaDerniereLettre(j) {
 </body>
 
 </html>
+} */
