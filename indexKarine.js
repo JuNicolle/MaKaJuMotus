@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     }
+    
 
     // ajout fonction supprimer lettre - cette fonction marche
     function supprimerLaDerniereLettre(j) {
@@ -83,9 +84,51 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
+}
   
+  // Fonction pour vérifier la réponse
+  function entrerReponse() {
+    const lignes = tableau.getElementsByTagName("tr");
+    let tentative = "";
+  
+  // Construire la réponse de l'utilisateur à partir de la première ligne du tableau
+  for (let i = 0; i < lignes[0].children.length; i++) {
+    tentative += lignes[0].children[i].textContent;
+  }
+  
+  const tentativeLettres = tentative.split("");
+  
+  // Affichage visuel pour chaque lettre tapée dans le tableau 
+  tentativeLettres.forEach((lettre, index) => {
+    const cellule = lignes[0].children[index];
+    console.log(cellule)
+    if (lettre === motDecoupe[index]) {
+      cellule.className = ("class","red");
+    } else if (motDecoupe.includes(lettre)) {
+      cellule.className = ("yellow");
+    } else {
+      cellule.className = ("grey");
+    };
+    });
+    changerLigne();
+    console.log("Appel de nouvelle ligne");
+      
+};
 
 
+
+
+// function changerLigne(){
+//   const tableau = document.getElementById("tableau");
+//   const lignes = tableau.getElementsByTagName("tr");
+//   let ligneSuivante=lignes[0];
+
+//   for (let i = 0; i < 5; i++) {
+//   ligneSuivante=lignes[i];
+
+//   }
+
+// }
 
   
 

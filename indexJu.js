@@ -17,18 +17,25 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(motAtrouver.length);
     let motDecoupe = motAtrouver.split("");
     console.log(motDecoupe);
+  
+       // Attitrer les cases a l'ecran aux lettres de l'alphabet
+ const letters = document.getElementsByClassName("letter");
 
-    // Creer un tableau avec le mot, n'afficher que la premiere lettre
-    // Si l'index est 0 : affiche la lettre 0 (premiere lettre)
-    // Si l'index est autre : affiche les lettres correspondantes
-
-    // TEST CODE
+  for (let i = 0; i < letters.length; i++) {
+    letters[i].addEventListener("click", () => {
+      console.log(letters[i].innerText);
+    });
+ };
+    
+   // Création du tableau et des lignes nommées avec un ID 
     const tableau = document.getElementById("tableau");
     const clavier = document.getElementById("keybord");
 
     function creerTableau() {
       const ligne1 = document.createElement("tr");
       ligne1.id = "ligne-1";
+
+      //Faire spawn le mot découpé dans le tableau, ligne 1
 
       motDecoupe.forEach((lettre, index) => {
         const cellule = document.createElement("td");
@@ -60,59 +67,95 @@ document.addEventListener("DOMContentLoaded", () => {
           if (cellules[j].textContent === "-") {
             cellules[j].textContent = lettre;
             return; // On arrête dès qu'on a ajouté la lettre
-          }
-        }
-      }
-    }
+          };
+        };
+      };
+    };
+
+  // Fonction pour effacer la dernière lettre
+  function supprimerLaDerniereLettre() {
+    const lignes = tableau.getElementsByTagName("tr");
+
+    for (let i = lignes.length - 1; i >= 0; i--) {
+      const cellules = lignes[i].getElementsByTagName("td");
+      for (let j = cellules.length - 1; j >= 0; j--) {
+        if (cellules[j].textContent !== "-" && cellules[j].textContent !== "") {
+          cellules[j].textContent = cellules[j].textContent.slice(0, -1);
+          return;
+        };
+      };
+    };
+  };
+
+  // Fonction pour vérifier la réponse
+  function entrerReponse() {
+    const lignes = tableau.getElementsByTagName("tr");
+    let tentative = "";
+  
+  // Construire la réponse de l'utilisateur à partir de la première ligne du tableau
+  for (let i = 0; i < lignes[0].children.length; i++) {
+    tentative += lignes[0].children[i].textContent;
+  }
+  
+  const tentativeLettres = tentative.split("");
+  
+  // Affichage visuel pour chaque lettre tapée dans le tableau 
+  tentativeLettres.forEach((lettre, index) => {
+    const cellule = lignes[0].children[index];
+    console.log(cellule)
+    if (lettre === motDecoupe[index]) {
+      cellule.className = ("class","red");
+    } else if (motDecoupe.includes(lettre)) {
+      cellule.className = ("yellow");
+    } else {
+      cellule.className = ("grey");
+    };
+  });
+};
+
+  // Ajout des événements de clic sur chaque touche virtuelle
+    const deleteButton = document.getElementById("deleteButton");
+    const enterButton = document.getElementById("enterButton");
+
+    console.log(deleteButton);
 
     // Ajout des événements de clic sur chaque touche virtuelle
     clavier.addEventListener("click", function (event) {
       if (event.target.tagName === "BUTTON") {
-        const lettre = event.target.getAttribute("data-lettre");
-        ajouterLettreDansTableau(lettre);
-      }
+        if (event.target === deleteButton) {
+          supprimerLaDerniereLettre();
+          console.log(deleteButton.textContent);
+        } 
+        else if (event.target === enterButton) {
+          entrerReponse();
+          console.log(enterButton.textContent);
+        } else {
+          const lettre = event.target.getAttribute("data-lettre");
+          ajouterLettreDansTableau(lettre);
+        };
+      };
     });
 
-    // Création initiale du tableau
     creerTableau();
-
-    // const tableau = document.getElementById("tableau");
-    // const ligne1 = document.createElement("tr");
-    // ligne1.id='ligne-1';
-    // motDecoupe.forEach((lettre, index) => {
-    //   const cellule = document.createElement("td");
-    //   if (index === 0) {
-    //     cellule.textContent = lettre;
-    //     }
-    //   else if (index === 1,2,3,4,6,7,8,9){
-    //     cellule.textContent='-'
-    //     }
-    //   ligne1.appendChild(cellule);
-    // });
-    // tableau.appendChild(ligne1);
-
-    // for (let i = 0; i < 5; i++) {
-    //   const ligneVide = document.createElement("tr");
-    // // Les tr prennent des ID qui s'incrementent auto
-    //   ligneVide.setAttribute('id','ligne-'+(i+1));
-
-    //   motDecoupe.forEach(() => {
-    //     const celluleVide = document.createElement("td");
-    //     ligneVide.appendChild(celluleVide);
-    //   });
-    //   tableau.appendChild(ligneVide);
-    // };
-
-    // Attitrer les cases a l'ecran aux lettres de l'alphabet
-    const letters = document.getElementsByClassName("letter");
-
-    for (let i = 0; i < letters.length; i++) {
-      letters[i].addEventListener("click", () => {
-        console.log(letters[i].innerText);
-      });
-    }
   }
-
-  // creation action du bouton commencer
+   
+  const startButton = document.getElementById("startButton");
   startButton.addEventListener("click", jouer);
 });
+
+ // Attitrer les cases a l'ecran aux lettres de l'alphabet
+//  const letters = document.getElementsByClassName("letter");
+
+//  for (let i = 0; i < letters.length; i++) {
+//    letters[i].addEventListener("click", () => {
+//      console.log(letters[i].innerText);
+//    });
+//  }
+// }
+
+
+    // Creer un tableau avec le mot, n'afficher que la premiere lettre
+    // Si l'index est 0 : affiche la lettre 0 (premiere lettre)
+    // Si l'index est autre : affiche les lettres correspondantes
+
+  

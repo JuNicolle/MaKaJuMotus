@@ -1,3 +1,4 @@
+
 :root {
     --dark--: #2A2B2E;
     --red--: #A40606;
@@ -271,7 +272,7 @@ table {
 }
 
 
-/* function supprimerLaDerniereLettre(j) {
+function supprimerLaDerniereLettre(j) {
     const lignes = tableau.getElementsByTagName("tr");
 
   for (let i = 0; i < lignes.length; i++) {
@@ -284,4 +285,100 @@ table {
       }
     }
   }
-} */
+}
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./indexMarion.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div id="title">
+            <div id="lettreM">M</div>
+            <div id="lettreA">a</div>
+            <div id="lettreK">K</div>
+            <div id="lettreAbis">a</div>
+            <div id="lettreJ">J</div>
+            <div id="lettreU">u</div>
+            <div id="lettreM">M</div>
+            <div id="lettreA">a</div>
+            <div id="lettreK">K</div>
+            <div id="lettreAbis">a</div>
+            <div id="lettreJ">J</div>
+            <div id="lettreU">u</div>
+        </div>
+        <div id="divButton">
+            <input id="startButton" type="submit" value="Commencer" onclick="this.disabled=true;">
+        </div>
+    </header>
+    <main>
+        <div>
+            <table id="tableau">
+
+
+            </table>
+
+            <div id="keybord">
+                <div id="firstLign">
+                    <div class="letter"><button data-lettre="A">A</button></div>
+                    <div class="letter"><button data-lettre="Z">Z</button></div>
+                    <div class="letter"><button data-lettre="E">E</button></div>
+                    <div class="letter"><button data-lettre="R">R</button></div>
+                    <div class="letter"><button data-lettre="T">T</button></div>
+                    <div class="letter"><button data-lettre="Y">Y</button></div>
+                    <div class="letter"><button data-lettre="U">U</button></div>
+                    <div class="letter"><button data-lettre="I">I</button></div>
+                    <div class="letter"><button data-lettre="O">O</button></div>
+                    <div class="letter"><button data-lettre="P">P</button></div>
+                </div>
+                <div id="secondLign">
+                    <div class="letter"><button data-lettre="Q">Q</button></div>
+                    <div class="letter"><button data-lettre="S">S</button></div>
+                    <div class="letter"><button data-lettre="D">D</button></div>
+                    <div class="letter"><button data-lettre="F">F</button></div>
+                    <div class="letter"><button data-lettre="G">G</button></div>
+                    <div class="letter"><button data-lettre="H">H</button></div>
+                    <div class="letter"><button data-lettre="J">J</button></div>
+                    <div class="letter"><button data-lettre="K">K</button></div>
+                    <div class="letter"><button data-lettre="L">L</button></div>
+                    <div class="letter"><button data-lettre="M">M</button></div>
+                </div>
+                <div id="thirdLign">
+                    <div class="letter"><button data-lettre="W">W</button></div>
+                    <div class="letter"><button data-lettre="X">X</button></div>
+                    <div class="letter"><button data-lettre="C">C</button></div>
+                    <div class="letter"><button data-lettre="V">V</button></div>
+                    <div class="letter"><button data-lettre="B">B</button></div>
+                    <div class="letter"><button data-lettre="N">N</button></div>
+                    <div class="letter"><button id="deleteButton">Effacer</button></div>
+                    <div class="letter"><button id="enterButton">Entrer</button></div>
+                </div>
+            </div>
+
+
+            <div id="stat">
+                <p4>STATISTIQUES: </p>
+            </div>
+        </div>
+    </main>
+
+    <script src="./indexJu.js"></script>
+
+    <script src="./indexKarine.js"></script>
+
+    <script src="./indexKarine.js"></script>
+
+</body>
+
+</html>
