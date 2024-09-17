@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // on cree la liste de mots
-  const listeMots = ["TOTO", "TOTOMOTO", "MAISON", "DEVELOPPEMENT"];
+  const listeMots = ["JOYEUX", "CODAGE", "FORMATION", "MAISON", "PORTABLE", "ECRANS", "CRAYON", "CHARGEUR", "MANGER", "BURGER", "FRITERIE"];
   // console.log(listeMots.length);
   console.log(listeMots);
   // on calcule le nombre de mots
