@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // on cree la liste de mots
-  const listeMots = ["TOTO", "TATA", "MAISON"];
+  const listeMots = ["JOYEUX", "CODAGE", "FORMATION", "MAISON", "PORTABLE", "ECRANS", "CRAYON", "CHARGEUR", "MANGER", "BURGER", "FRITERIE"];
   // console.log(listeMots.length);
   console.log(listeMots);
   // on calcule le nombre de mots
@@ -102,19 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
       };
     };
     // -----------------------------------------------------
-  // Fonction pour effacer la dernière lettre - en cours .....
-  //   function supprimerLaDerniereLettre() {
-
-  //     ligneCourante=document.getElementById("tr");
-  //     console.log(ligneCourante);
-      
-  //     colonneCourante=document.getElementById("td");
-  //     console.log(colonneCourante);
-      
-      
-      
-  //   // };
-  // };
 
   // ------------------------------- qui marche bof
   function supprimerLaDerniereLettre() {
