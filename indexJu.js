@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // on cree la liste de mots
-  const listeMots = ["TOTO", "TOTOMOTO", "MAISON"];
+  const listeMots = ["JOYEUX", "CODAGE", "FORMATION", "MAISON", "PORTABLE", "ECRANS", "CRAYON", "CHARGEUR", "MANGER", "BURGER", "FRITERIE"];
   // console.log(listeMots.length);
   console.log(listeMots);
   // on calcule le nombre de mots
@@ -17,12 +17,19 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(motAtrouver.length);
     let motDecoupe = motAtrouver.split("");
     console.log(motDecoupe);
+    let ligneIndex = 0; 
+    let lettresCorrectes = Array(motDecoupe.length).fill(null); 
+  
+       // Attitrer les cases a l'ecran aux lettres de l'alphabet
+ const letters = document.getElementsByClassName("letter");
 
-    // Creer un tableau avec le mot, n'afficher que la premiere lettre
-    // Si l'index est 0 : affiche la lettre 0 (premiere lettre)
-    // Si l'index est autre : affiche les lettres correspondantes
-
-    // TEST CODE
+  for (let i = 0; i < letters.length; i++) {
+    letters[i].addEventListener("click", () => {
+      console.log(letters[i].innerText);
+    });
+ };
+    
+   // Création du tableau et des lignes nommées avec un ID 
     const tableau = document.getElementById("tableau");
     const clavier = document.getElementById("keybord");
 
@@ -30,27 +37,48 @@ document.addEventListener("DOMContentLoaded", () => {
       const ligne1 = document.createElement("tr");
       ligne1.id = "ligne-1";
 
-      motDecoupe.forEach((lettre, index) => {
-        const cellule = document.createElement("td");
-        cellule.textContent = index === 0 ? lettre : "-";
-        ligne1.appendChild(cellule);
-      });
-
-      tableau.appendChild(ligne1);
-
-      // Création de 5 lignes vides
-      for (let i = 0; i < 5; i++) {
+      //Faire spawn le mot découpé dans le tableau, ligne 1
+      for (let i = 1; i < 7; i++) {
         const ligneVide = document.createElement("tr");
-        ligneVide.setAttribute("id", "ligne-" + (i + 1));
+        ligneVide.setAttribute("id", "ligne-" + (i));
 
-        motDecoupe.forEach(() => {
-          const celluleVide = document.createElement("td");
-          ligneVide.appendChild(celluleVide);
+        motDecoupe.forEach((lettre,index) => {
+          const cellule = document.createElement("td");
+           ligneVide.appendChild(cellule);
+          if (index===0) {
+            console.log(lettre);
+            cellule.textContent=lettre;
+          }else{
+            cellule.textContent="-";
+          }
         });
-        tableau.appendChild(ligneVide);
+          tableau.appendChild(ligneVide);
       }
     }
-    // Fonction pour gérer le clic sur une touche virtuelle
+
+    //   motDecoupe.forEach((lettre, index) => {
+    //     const cellule = document.createElement("td");
+    //     cellule.textContent = index === 0 ? lettre : "-";
+    //     ligne1.appendChild(cellule);
+    //   });
+
+    //   tableau.appendChild(ligne1);
+
+    //   // Création de 5 lignes vides
+    //   for (let i = 0; i < 5; i++) {
+    //     const ligneVide = document.createElement("tr");
+    //     ligneVide.setAttribute("id", "ligne-" + (i + 2));
+
+    //     motDecoupe.forEach(() => {
+    //       const celluleVide = document.createElement("td");
+    //       ligneVide.appendChild(celluleVide);
+    //     });
+    //     tableau.appendChild(ligneVide);
+    //   }
+    // }
+
+    
+  // Fonction pour gérer le clic sur une touche virtuelle
     function ajouterLettreDansTableau(lettre) {
       const lignes = tableau.getElementsByTagName("tr");
 
@@ -60,59 +88,94 @@ document.addEventListener("DOMContentLoaded", () => {
           if (cellules[j].textContent === "-") {
             cellules[j].textContent = lettre;
             return; // On arrête dès qu'on a ajouté la lettre
-          }
+          };
+        };
+      };
+    };
+
+  // Fonction pour effacer la dernière lettre
+    function supprimerLaDerniereLettre() {
+      const lignes = tableau.getElementsByTagName("tr");
+
+    for (let i = 1; i< lignes.length - 1; i--) {
+      const cellules = lignes[i].getElementsByTagName("td");
+      for (let j = cellules.length-1 ; j > 0; j--) {
+        if (cellules[j].textContent !== "-" && cellules[j].textContent !== "") {
+          cellules[j].textContent = "-"
+          return;
+        };
+      };
+    };
+  };
+
+  function entrerReponse() {
+    const lignes = tableau.getElementsByTagName("tr");
+    const ligneActuelle = lignes[ligneIndex]; // Récupère la ligne actuelle où l'utilisateur saisit le mot
+    const cellules = ligneActuelle.getElementsByTagName("td");
+  
+    let motSaisi = "";
+    for (let i = 0; i < cellules.length; i++) {
+      motSaisi += cellules[i].textContent;
+    }
+  
+    // Comparer le mot saisi avec le mot à trouver
+    for (let i = 0; i < motDecoupe.length; i++) {
+      if (motSaisi[i] === motDecoupe[i]) {
+        // Lettre à la bonne place
+        cellules[i].className = ("class","red");
+        lettresCorrectes[i] = motDecoupe[i]; // Marquer la lettre correcte pour la prochaine ligne
+      } else if (motDecoupe.includes(motSaisi[i])) {
+        // Lettre correcte mais mauvaise position
+        cellules[i].className = ("yellow");
+      } else {
+        // Lettre incorrecte
+        cellules[i].className = ("grey");
+      }
+    }
+  
+    // Passer les lettres correctes à la ligne suivante
+    if (ligneIndex < lignes.length - 1) { // Vérifier qu'il y a encore des lignes
+      const prochaineLigne = lignes[ligneIndex + 1].getElementsByTagName("td");
+  
+      // Copier les lettres correctes sur la prochaine ligne
+      for (let i = 0; i < lettresCorrectes.length; i++) {
+        if (lettresCorrectes[i] !== null) {
+          prochaineLigne[i].textContent = lettresCorrectes[i]; // Afficher la lettre correcte
         }
       }
     }
+  
+    // Incrémenter l'index de ligne pour passer à la ligne suivante
+    ligneIndex=1;
+    celluleVide++;
+  }
+
+  // Ajout des événements de clic sur chaque touche virtuelle
+    const deleteButton = document.getElementById("deleteButton");
+    const enterButton = document.getElementById("enterButton");
+
+    console.log(deleteButton);
 
     // Ajout des événements de clic sur chaque touche virtuelle
     clavier.addEventListener("click", function (event) {
       if (event.target.tagName === "BUTTON") {
-        const lettre = event.target.getAttribute("data-lettre");
-        ajouterLettreDansTableau(lettre);
-      }
+        if (event.target === deleteButton) {
+          supprimerLaDerniereLettre();
+          console.log(deleteButton.textContent);
+        } 
+        else if (event.target === enterButton) {
+          entrerReponse();
+          console.log(enterButton.textContent);
+        } else {
+          const lettre = event.target.getAttribute("data-lettre");
+          ajouterLettreDansTableau(lettre);
+        };
+      };
     });
 
-    // Création initiale du tableau
     creerTableau();
-
-    // const tableau = document.getElementById("tableau");
-    // const ligne1 = document.createElement("tr");
-    // ligne1.id='ligne-1';
-    // motDecoupe.forEach((lettre, index) => {
-    //   const cellule = document.createElement("td");
-    //   if (index === 0) {
-    //     cellule.textContent = lettre;
-    //     }
-    //   else if (index === 1,2,3,4,6,7,8,9){
-    //     cellule.textContent='-'
-    //     }
-    //   ligne1.appendChild(cellule);
-    // });
-    // tableau.appendChild(ligne1);
-
-    // for (let i = 0; i < 5; i++) {
-    //   const ligneVide = document.createElement("tr");
-    // // Les tr prennent des ID qui s'incrementent auto
-    //   ligneVide.setAttribute('id','ligne-'+(i+1));
-
-    //   motDecoupe.forEach(() => {
-    //     const celluleVide = document.createElement("td");
-    //     ligneVide.appendChild(celluleVide);
-    //   });
-    //   tableau.appendChild(ligneVide);
-    // };
-
-    // Attitrer les cases a l'ecran aux lettres de l'alphabet
-    const letters = document.getElementsByClassName("letter");
-
-    for (let i = 0; i < letters.length; i++) {
-      letters[i].addEventListener("click", () => {
-        console.log(letters[i].innerText);
-      });
-    }
   }
-
-  // creation action du bouton commencer
+   
+  const startButton = document.getElementById("startButton");
   startButton.addEventListener("click", jouer);
 });

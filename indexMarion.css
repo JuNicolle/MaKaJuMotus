@@ -1,23 +1,55 @@
 :root {
     --dark--: #2A2B2E;
     --red--: #A40606;
-    --yellow--: #FFE74C;
+    --yellow--: #dbc42c;
     --table--: #5998c5;
     --white--: #FFFBFE;
 }
 
 * {
     font-family: "Lexend", sans-serif;
+    
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dark--);
+}
+
+
+
+html {
+    min-height: 100%;
 }
 
 body {
     background-color: var(--dark--);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+
+}
+
+main {
+
+    margin: auto;
 
 }
 
 header {
-    width: 100%;
-    padding-bottom: 5vh;
+    padding-top: 3vh;
+    padding-bottom: 2vh;
+    margin: auto;
+
 
 }
 
@@ -26,62 +58,52 @@ header {
     color: #fff;
     display: flex;
     justify-content: center;
-    font-size: 8vw;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
+    font-size: 4vw;
 
+    padding-bottom: 2vh;
+    margin: auto;
 }
 
 #lettreM {
 
     background-color: #A40606;
-    height: 10vh;
-    line-height: 10vh;
+
     box-shadow: 0 10px 20px -8px rgba(134, 132, 132, 0.7);
 
 }
 
-#lettreA {
-    height: 10vh;
-    line-height: 10vh;
 
 
-}
 
 #lettreK {
-    display: block;
-    box-sizing: border-box;
-    background-color: #FFE74C;
-    width: 6vw;
-    border-radius: 60px;
-    height: 10vh;
-    line-height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--yellow--);
+
+    border-radius: 60%;
+
+
     box-shadow: 0 10px 20px -8px rgba(134, 132, 132, 0.7);
 }
 
-#lettreAbis {
-    height: 10vh;
-    line-height: 10vh;
-}
+
 
 #lettreJ {
     background-color: #A40606;
-    height: 10vh;
-    line-height: 10vh;
-    width: 6vw;
+
+
     text-align: center;
     box-shadow: 0 10px 20px -8px rgba(134, 132, 132, 0.7);
 }
 
-#lettreU {
-    height: 10vh;
-    line-height: 10vh;
-}
 
 #divButton {
     display: flex;
     justify-content: center;
-
+    margin: auto;
+    width: 100%;
 }
 
 
@@ -92,11 +114,11 @@ header {
     border: none;
     color: #fff;
     text-align: center;
-    font-size: 3vw;
-    padding: 2vw;
+    font-size: 1vw;
+    padding: 1vw;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 3vw;
+    margin: 1vw;
     box-shadow: 0 10px 20px -8px rgba(134, 132, 132, 0.7);
 }
 
@@ -128,50 +150,96 @@ header {
 
 
 
+table {
+    border-collapse: collapse;
+
+    margin-bottom: 2vh;
+
+    margin: auto;
+
+
+}
+
+
+
+
 td {
+
     border: 3px solid var(--white--);
-    padding: 3vw;
+    padding: 1vw;
     color: var(--white--);
-    background-color: var(--table--);
-    font-size: 3vw ;
-    height: 2vw;
+    -webkit-background-color: #5998c5;
+    background-color: #5998c5;
+    font-size: 2vw;
+    height: 2vh;
     width: 2vw;
+    text-align: center;
 
 
 }
 
 tr {
     border: 3px solid var(--white--);
-    padding: 3vw;
+    padding: 1vw;
     color: var(--white--);
-    background-color: var(--table--);
-    font-size: 3vw;
-    height: 2vw;
+    -webkit-background-color: #5998c5;
+    background-color: #5998c5;
+    height: 2vh;
     width: 2vw;
-    font-size: 3vw;
+    font-size: 2vw;
+    text-align: center;
 
 
 
 }
 
-
-table {
-    border-collapse: collapse;
-    margin: auto;
-    margin-bottom: 5vh;
-
-
-
+#tableau{
+    transition : 0.5s;
+    animation: slide 2s ease-in-out;
+    box-shadow: 0 10px 20px -8px rgba(134, 132, 132, 0.7);
 
 }
+
+@keyframes slide {
+    0% {
+        translate : 100%;
+    }
+    25%{
+        translate : -100%;
+    }
+} 
+    /* animation: bounce-in-right 2s ease-in-out forwards;}
+
+  @keyframes bounce-in-right {
+    0% {
+      opacity: 0;
+      transform: translateX(3000px);
+    }
+    60% {
+      opacity: 1;
+      transform: translateX(-30px);
+    }
+    80% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+  } */
+
+
+/* #tableau:hover{
+    scale:1.1
+} */
+
+
 
 #keybord {
     display: flex;
     justify-content: center;
-    width: 100%;
+    padding-top: 2vh;
+padding-bottom: 3vh;
     flex-direction: column;
     gap: 1vw;
     align-content: center;
+    margin: auto;
+
 }
 
 
@@ -187,19 +255,14 @@ table {
 
 }
 
-#stat {
-    display: flex;
-    justify-content: center;
-    margin-top: 5vw;
-    color: #fff;
-}
 
 
 #keybord>#firstLign,
 #secondLign,
 #thirdLign {
     display: flex;
-    width: 100%;
+
+
     justify-content: center;
     text-align: center;
     gap: 1vw;
@@ -210,44 +273,212 @@ table {
 .letter {
     display: flex;
     align-content: center;
+    border-radius: 10px;
+
 
 }
 
 .letter>button {
 
-    padding: 2.5vw;
+    padding: 0.7vw;
     background: linear-gradient(rgba(36, 35, 35, 0.294), rgba(255, 255, 255, 0.477));
     border-radius: 10px;
     color: #fff;
-    font-size: 2vw;
+    font-size: 1.5vw;
     text-align: center;
     align-items: center;
     opacity: 0.5;
+    transition:0.5s;
+    cursor: pointer;
+
 
 }
 
 .letter>button:hover {
     background: linear-gradient(rgba(36, 35, 35, 0.294), rgba(255, 255, 255, 0.477));
     opacity: 1.2;
+    scale:1.2;
+
 
 
 }
 
-@media (max-width:600px) {
+/* NOUVEAU STYLE LETTRES JS */
+
+.red{
+    background-color: #A40606;
+    color: #fff;
+}
+
+.yellow{
+    background-color: var(--yellow--);
+    border-radius: 50%;
+    color: #fff;
+}
+
+.grey{
+    background-color: darkgray;
+    color: #fff;
+}
+
+.red{
+    background-color: #A40606;
+    color: #fff;
+}
+
+.yellow{
+    background-color: #FFE74C;
+    border-radius: 50%;
+    color: #fff;
+}
+
+.grey{
+    background-color: darkgray;
+    color: #fff;
+}
+
+/* RESPONSIVE */
+
+@media (max-width:630px) {
 
     body {
         display: flex;
         flex-direction: column;
- justify-content: center;
+        justify-content: center;
+
     }
 
     * {
-    margin-top: 1vw;
+        margin-top: 1vw;
     }
 
-    header{
-        width:100%
+
+    #title {
+        font-size: 12vw;
     }
 
+    #startButton {
+        border-radius: 10px;
+        background-color: #5998c59d;
+        border: none;
+        color: #fff;
+        text-align: center;
+        font-size: 3.5vw;
+        padding: 2.5vw;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 3vw;
+        box-shadow: 0 10px 20px -8px rgba(134, 132, 132, 0.7);
+    }
+
+    #startButton {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 2s;
+    }
+
+    #startButton:after {
+        content: '»';
+        position: absolute;
+        opacity: 0;
+        top: 3vw;
+        right: -3vw;
+        transition: 4s;
+    }
+
+    #startButton:hover {
+        padding-right: 4vw;
+        padding-left: 4vw;
+    }
+
+    #startButton:hover:after {
+        opacity: 1;
+        right: 1vw;
+    }
+
+    table {
+        border-collapse: collapse;
+        margin: auto;
+        margin-bottom: 5vh;
+        width: 50%;
+
+    }
+
+    td {
+        border: 2px solid var(--white--);
+        padding: 3vw;
+        color: var(--white--);
+        background-color: var(--table--);
+        font-size: 3vw;
+        height: 2vw;
+        width: 2vw;
+
+
+    }
+
+    tr {
+        border: 2px solid var(--white--);
+        padding: 3vw;
+        color: var(--white--);
+        background-color: var(--table--);
+        font-size: 5vw;
+        height: 2vw;
+        width: 2vw;
+        font-size: 3vw;
+
+
+
+    }
+
+
+    .letter>button {
+
+        padding: 2vw;
+        background: linear-gradient(rgba(36, 35, 35, 0.294), rgba(255, 255, 255, 0.477));
+        border-radius: 10px;
+        color: #fff;
+        font-size: 3.5vw;
+        text-align: center;
+        align-items: center;
+        opacity: 0.5;
+
+    }
+
+    #keybord {
+        margin: auto;
+    }
 }
 
+
+
+
+
+@media (min-width: 630px) and (max-width: 1200px) {
+    #title {
+        font-size: 7vw;
+    }
+
+    #startButton {
+        font-size: 2vw;
+        padding: 1.5vw;
+        margin: 2vw;
+    }
+
+    table {
+
+        margin: auto;
+        margin-bottom: 3vh;
+    }
+
+    td,
+    tr {
+        font-size: 2vw;
+        padding: 1.5vw;
+    }
+
+    .letter>button {
+        padding: 1vw;
+        font-size: 2.5vw;
+    }
+}
