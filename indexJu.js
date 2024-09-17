@@ -38,27 +38,46 @@ document.addEventListener("DOMContentLoaded", () => {
       ligne1.id = "ligne-1";
 
       //Faire spawn le mot découpé dans le tableau, ligne 1
-
-      motDecoupe.forEach((lettre, index) => {
-        const cellule = document.createElement("td");
-        cellule.textContent = index === 0 ? lettre : "-";
-        ligne1.appendChild(cellule);
-      });
-
-      tableau.appendChild(ligne1);
-
-      // Création de 5 lignes vides
-      for (let i = 0; i < 5; i++) {
+      for (let i = 1; i < 7; i++) {
         const ligneVide = document.createElement("tr");
-        ligneVide.setAttribute("id", "ligne-" + (i + 2));
+        ligneVide.setAttribute("id", "ligne-" + (i));
 
-        motDecoupe.forEach(() => {
-          const celluleVide = document.createElement("td");
-          ligneVide.appendChild(celluleVide);
+        motDecoupe.forEach((lettre,index) => {
+          const cellule = document.createElement("td");
+           ligneVide.appendChild(cellule);
+          if (index===0) {
+            console.log(lettre);
+            cellule.textContent=lettre;
+          }else{
+            cellule.textContent="-";
+          }
         });
-        tableau.appendChild(ligneVide);
+          tableau.appendChild(ligneVide);
       }
     }
+
+    //   motDecoupe.forEach((lettre, index) => {
+    //     const cellule = document.createElement("td");
+    //     cellule.textContent = index === 0 ? lettre : "-";
+    //     ligne1.appendChild(cellule);
+    //   });
+
+    //   tableau.appendChild(ligne1);
+
+    //   // Création de 5 lignes vides
+    //   for (let i = 0; i < 5; i++) {
+    //     const ligneVide = document.createElement("tr");
+    //     ligneVide.setAttribute("id", "ligne-" + (i + 2));
+
+    //     motDecoupe.forEach(() => {
+    //       const celluleVide = document.createElement("td");
+    //       ligneVide.appendChild(celluleVide);
+    //     });
+    //     tableau.appendChild(ligneVide);
+    //   }
+    // }
+
+    
   // Fonction pour gérer le clic sur une touche virtuelle
     function ajouterLettreDansTableau(lettre) {
       const lignes = tableau.getElementsByTagName("tr");
