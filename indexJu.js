@@ -130,34 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ligneIndex++;
   }
 
-
-  // Fonction pour vérifier la réponse
-//   function entrerReponse() {
-//     const lignes = tableau.getElementsByTagName("tr");
-//     let tentative = "";
-  
-
-//   // Construire la réponse de l'utilisateur à partir de la première ligne du tableau
-//   for (let i = 0; i < lignes[0].children.length; i++) {
-//     tentative += lignes[0].children[i].textContent;
-//   }
-  
-//   const tentativeLettres = tentative.split("");
-  
-//   // Affichage visuel pour chaque lettre tapée dans le tableau 
-//   tentativeLettres.forEach((lettre, index) => {
-//     const cellule = lignes[0].children[index];
-//     console.log(cellule)
-//     if (lettre === motDecoupe[index]) {
-//       cellule.className = ("class","red");
-//     } else if (motDecoupe.includes(lettre)) {
-//       cellule.className = ("yellow");
-//     } else {
-//       cellule.className = ("grey");
-//     };
-//   });
-// };
-
   // Ajout des événements de clic sur chaque touche virtuelle
     const deleteButton = document.getElementById("deleteButton");
     const enterButton = document.getElementById("enterButton");
@@ -187,18 +159,3 @@ document.addEventListener("DOMContentLoaded", () => {
   const startButton = document.getElementById("startButton");
   startButton.addEventListener("click", jouer);
 });
-
- // Attitrer les cases a l'ecran aux lettres de l'alphabet
-//  const letters = document.getElementsByClassName("letter");
-
-//  for (let i = 0; i < letters.length; i++) {
-//    letters[i].addEventListener("click", () => {
-//      console.log(letters[i].innerText);
-//    });
-//  }
-// }
-
-
-    // Creer un tableau avec le mot, n'afficher que la premiere lettre
-    // Si l'index est 0 : affiche la lettre 0 (premiere lettre)
-    // Si l'index est autre : affiche les lettres correspondantes
