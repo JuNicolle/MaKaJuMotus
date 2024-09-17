@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // on cree la liste de mots
-  const listeMots = ["TOTO", "TOTOMOTO", "MAISON", "DEVELOPPEMENT"];
+  const listeMots = ["JOYEUX", "CODAGE", "FORMATION", "MAISON", "PORTABLE", "ECRANS", "CRAYON", "CHARGEUR", "MANGER", "BURGER", "FRITERIE"];
   // console.log(listeMots.length);
   console.log(listeMots);
   // on calcule le nombre de mots
@@ -38,27 +38,46 @@ document.addEventListener("DOMContentLoaded", () => {
       ligne1.id = "ligne-1";
 
       //Faire spawn le mot découpé dans le tableau, ligne 1
-
-      motDecoupe.forEach((lettre, index) => {
-        const cellule = document.createElement("td");
-        cellule.textContent = index === 0 ? lettre : "-";
-        ligne1.appendChild(cellule);
-      });
-
-      tableau.appendChild(ligne1);
-
-      // Création de 5 lignes vides
-      for (let i = 0; i < 5; i++) {
+      for (let i = 1; i < 7; i++) {
         const ligneVide = document.createElement("tr");
-        ligneVide.setAttribute("id", "ligne-" + (i + 2));
+        ligneVide.setAttribute("id", "ligne-" + (i));
 
-        motDecoupe.forEach(() => {
-          const celluleVide = document.createElement("td");
-          ligneVide.appendChild(celluleVide);
+        motDecoupe.forEach((lettre,index) => {
+          const cellule = document.createElement("td");
+           ligneVide.appendChild(cellule);
+          if (index===0) {
+            console.log(lettre);
+            cellule.textContent=lettre;
+          }else{
+            cellule.textContent="-";
+          }
         });
-        tableau.appendChild(ligneVide);
+          tableau.appendChild(ligneVide);
       }
     }
+
+    //   motDecoupe.forEach((lettre, index) => {
+    //     const cellule = document.createElement("td");
+    //     cellule.textContent = index === 0 ? lettre : "-";
+    //     ligne1.appendChild(cellule);
+    //   });
+
+    //   tableau.appendChild(ligne1);
+
+    //   // Création de 5 lignes vides
+    //   for (let i = 0; i < 5; i++) {
+    //     const ligneVide = document.createElement("tr");
+    //     ligneVide.setAttribute("id", "ligne-" + (i + 2));
+
+    //     motDecoupe.forEach(() => {
+    //       const celluleVide = document.createElement("td");
+    //       ligneVide.appendChild(celluleVide);
+    //     });
+    //     tableau.appendChild(ligneVide);
+    //   }
+    // }
+
+    
   // Fonction pour gérer le clic sur une touche virtuelle
     function ajouterLettreDansTableau(lettre) {
       const lignes = tableau.getElementsByTagName("tr");
@@ -131,34 +150,6 @@ document.addEventListener("DOMContentLoaded", () => {
     celluleVide++;
   }
 
-
-  // Fonction pour vérifier la réponse
-//   function entrerReponse() {
-//     const lignes = tableau.getElementsByTagName("tr");
-//     let tentative = "";
-  
-
-//   // Construire la réponse de l'utilisateur à partir de la première ligne du tableau
-//   for (let i = 0; i < lignes[0].children.length; i++) {
-//     tentative += lignes[0].children[i].textContent;
-//   }
-  
-//   const tentativeLettres = tentative.split("");
-  
-//   // Affichage visuel pour chaque lettre tapée dans le tableau 
-//   tentativeLettres.forEach((lettre, index) => {
-//     const cellule = lignes[0].children[index];
-//     console.log(cellule)
-//     if (lettre === motDecoupe[index]) {
-//       cellule.className = ("class","red");
-//     } else if (motDecoupe.includes(lettre)) {
-//       cellule.className = ("yellow");
-//     } else {
-//       cellule.className = ("grey");
-//     };
-//   });
-// };
-
   // Ajout des événements de clic sur chaque touche virtuelle
     const deleteButton = document.getElementById("deleteButton");
     const enterButton = document.getElementById("enterButton");
@@ -188,18 +179,3 @@ document.addEventListener("DOMContentLoaded", () => {
   const startButton = document.getElementById("startButton");
   startButton.addEventListener("click", jouer);
 });
-
- // Attitrer les cases a l'ecran aux lettres de l'alphabet
-//  const letters = document.getElementsByClassName("letter");
-
-//  for (let i = 0; i < letters.length; i++) {
-//    letters[i].addEventListener("click", () => {
-//      console.log(letters[i].innerText);
-//    });
-//  }
-// }
-
-
-    // Creer un tableau avec le mot, n'afficher que la premiere lettre
-    // Si l'index est 0 : affiche la lettre 0 (premiere lettre)
-    // Si l'index est autre : affiche les lettres correspondantes
