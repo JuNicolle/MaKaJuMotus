@@ -7,13 +7,7 @@
     --white--: #FFFBFE;
 }
 
-:root {
-    --dark--: #2A2B2E;
-    --red--: #A40606;
-    --yellow--: #FFE74C;
-    --table--: #5998c5;
-    --white--: #FFFBFE;
-}
+
 
 * {
     font-family: "Lexend", sans-serif;
@@ -32,6 +26,7 @@ body {
 header {
     width: 100%;
     padding-bottom: 1vh;
+    position: fixed;
 
 }
 
@@ -297,7 +292,7 @@ function supprimerLaDerniereLettre(j) {
 
 
 
-<!DOCTYPE html>
+/* <!DOCTYPE html>
 <html lang="fr">
 
 <head>

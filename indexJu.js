@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     for (let i = 1; i< lignes.length - 1; i--) {
       const cellules = lignes[i].getElementsByTagName("td");
-      for (let j = cellules.length - 1; j > 0; j--) {
+      for (let j = cellules.length-1 ; j > 0; j--) {
         if (cellules[j].textContent !== "-" && cellules[j].textContent !== "") {
           cellules[j].textContent = "-"
           return;
@@ -127,7 +127,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
     // Incrémenter l'index de ligne pour passer à la ligne suivante
-    ligneIndex++;
+    ligneIndex=1;
+    celluleVide++;
   }
 
   // Ajout des événements de clic sur chaque touche virtuelle
